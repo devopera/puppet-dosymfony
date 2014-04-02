@@ -58,7 +58,7 @@ define dosymfony::base (
   
   # hack app.php to report error message
   if ($access_appdebug) {
-    $match_line = "$kernel = new AppKernel('prod', "
+    $match_line = "\$kernel = new AppKernel('prod', "
     exec { "dosymfony-base-hack-appdebug-${title}" :
       path => '/bin:/usr/bin:/sbin:/usr/sbin:/usr/local/bin',
       command => "sed -i -e \"s/${match_line}false/${match_line}true/\" ${target_path}/${title}/web/app.php",    
