@@ -39,8 +39,8 @@ define dosymfony::base (
     group => $group,
     cwd => "/home/${user}",
     require => [Class['dosymfony::composer']],
-    # allow 10 minutes for install
-    timeout => 600,
+    # allow just over 30 minutes for install (takes a long time on Ubuntu)
+    timeout => 2100,
     # don't re-install if symfony directory already present (checked by 'src' subfolder)
     creates => "${target_path}/${title}/src",
   }
